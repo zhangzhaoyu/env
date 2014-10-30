@@ -23,6 +23,7 @@
 (setq default-fill-column 80)
 (setq default-major-mode 'text-mode)
 (setq show-paren-style 'parentheses)
+(setq x-select-enable-clipboard t);enable global clipboard
 
 ;; k&r coding style indentation
 
@@ -30,7 +31,7 @@
 ;;(add-hook 'c++-mode-common-hook ( lambda() ( c-set-style "linux" ) ) )
 
 (setq c-default-style "linux"
-     c-basic-offset 4)
+      c-basic-offset 4)
 (setq c-basic-offset 4);reset table offset
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
@@ -39,8 +40,6 @@
 ;;(setq c-tab-always-indent t)
 
 
-(setq x-select-enable-clipboard t);enable global clipboard
-(setq-default compile-command "make")
 
 ;; -------------------------------------------------------------------------
                                         ;鼠标滚轮，默认的滚动太快，这里改为3行
@@ -50,17 +49,18 @@
 (global-set-key [mouse-5] 'up-slightly)
 ;;------------------------------------------------------------
 ;; keyboard shortcuts setting
-(global-set-key [f11] 'speedbar)
-(global-set-key (kbd "C-c C-f")'find-file-at-point)
-(global-set-key (kbd "C-c m") 'set-mark-command)
-(global-set-key "\r" 'newline-and-indent)
+(setq-default compile-command "make")
+(setq gdb-use-separate-io-buffer 1)
 (global-set-key [f8] 'compile)
 (global-set-key [f9] 'gdb)
-(global-set-key [(meta g)] 'goto-line)
+(global-set-key [f11] 'speedbar)
+(global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-c =") 'hs-toggle-hiding)
 (global-set-key (kbd "C--") 'text-scale-decrease)
-(define-key global-map "\C-x\C-u" 'undo)
-(setq gdb-use-separate-io-buffer 1)
+(global-set-key (kbd "C-c C-f")'find-file-at-point)
+(global-set-key (kbd "C-m") 'set-mark-command)
+;(global-set-key (kbd "\r") 'newline-and-indent)
+
 
 (setq kill-ring-max 200)
 (fset 'yes-or-no-p 'y-or-n-p)
